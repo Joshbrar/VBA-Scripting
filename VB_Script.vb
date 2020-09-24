@@ -103,16 +103,38 @@ For y = 2 To lastRow
 Next y
 
 ' GetMaxpercentage MinPercentage , Max Total Stock Values
+ Cells(1, 18).Value = "Ticker"
+ Cells(1, 19).Value = "Value"
+ 
+ Cells(3, 17).Value = "Greatest % Increase :  "
+ varGPI = Application.WorksheetFunction.Max(Range("O:O"))
+ varRowNoMaxPercentVal = Application.WorksheetFunction.Match(Range("M:M").Application.WorksheetFunction.Max(Range("O:O")), Range("O:O"), 0)
+'MsgBox (varRowNoMaxPercentVal)
+ Cells(3, 18).Value = Cells(varRowNoMaxPercentVal, 13).Value
+ Cells(3, 19).Value = FormatPercent(varGPI, , , , vbFalse)
 
-' Cells(5, 17).Value = "Greatest Total Stock Value :  "
-' Cells(5, 18).Value = Application.WorksheetFunction.Max(Range("P:P"))
-'lastRowBonus = Cells(Rows.Count, 13).End(xlUp).Row
-'Cells(5, 17).Value = "Last Row Bonus Work  "
-' Cells(5, 18).Value = lastRowBonus
+
+  Cells(4, 17).Value = "Greatest % Decrease :  "
  
- 'For varYY = 2 To lastRowBonus
+  varGPD = Application.WorksheetFunction.Min(Range("O:O"))
  
+ varRowNoMinPercentVal = Application.WorksheetFunction.Match(Range("M:M").Application.WorksheetFunction.Min(Range("O:O")), Range("O:O"), 0)
+'MsgBox (varRowNoMinPercentVal)
  
- 'Next varYY
+  Cells(4, 18).Value = Cells(varRowNoMinPercentVal, 13).Value
+ 
+ Cells(4, 19).Value = FormatPercent(varGPD, , , , vbFalse)
+
+
+
+ Cells(5, 17).Value = "Greatest Total Stock Value :  "
+ Cells(5, 19).Value = Application.WorksheetFunction.Max(Range("P:P"))
+ 
+ varRowNoMaxTotalStkVal = Application.WorksheetFunction.Match(Range("M:M").Application.WorksheetFunction.Max(Range("P:P")), Range("P:P"), 0)
+ Cells(5, 18).Value = Cells(varRowNoMaxTotalStkVal, 13).Value
+ 
+
  
 End Sub
+
+

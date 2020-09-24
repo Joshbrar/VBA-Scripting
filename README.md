@@ -40,6 +40,7 @@ Stock Market Analysis
 
   The macros "runAll" automates the script that performas calculations for all the worksheets in the Stock Analysis Data file. 
   
+  The Bonus Challenge is included in the final update. Now you can see Greatest % increase , Greatest % Decrease and Max Stock Total Value.
   
   
   
